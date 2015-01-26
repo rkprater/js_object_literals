@@ -27,10 +27,10 @@
 
    addAllProducts: function (productsData) {
      productsData.forEach(tractorPage.addProduct);
-   },
+   }
 
  };
- 
+
 
  $(document).ready(function () {
    tractorPage.init();
