@@ -14,13 +14,14 @@
      console.log("styling loaded correctly");
    },
 
-   addProduct: function (product, index, array) {
+   addProduct: function(product, index, array) {
        $("section").append(
-         "<article" +
-         "<h3>" + product.title + "</h3>"
-         + "<p>" + product.content + "</p>"
-         + "<blockquote>" + product.author + "</blockquote>"
-         + "</article>"
+         "<article>" +
+         "<h2>" + product.name + "</h2>" +
+         "<img src='" + product.image + "'>" +
+         "<p>" + product.description + "</p>" +
+         "<blockquote>" + product.price + "</blockquote>" +
+         "</article>"
        );
    },
 
@@ -29,7 +30,7 @@
    },
 
  };
-
+ 
 
  $(document).ready(function () {
    tractorPage.init();
