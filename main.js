@@ -1,3 +1,5 @@
+
+
  var tractorPage = {
 
    init: function () {
@@ -8,6 +10,7 @@
    initStyling: function () {
 
      tractorPage.addAllProducts(products);
+
    },
 
    initEvents: function () {
@@ -18,6 +21,7 @@
      });
 
      $("section").on("click", ".deletePost", tractorPage.deletePost);
+     $("section").on("click", ".updatePost", tractorPage.updatePost);
    },
 
    createPost: function () {
@@ -39,7 +43,8 @@
    },
 
    updatePost: function (){
-
+     event.preventDefault();
+     $(".form").css({"display": "block"});
    },
 
    deletePost: function (event) {
