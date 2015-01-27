@@ -22,16 +22,17 @@
 
    createPost: function () {
      var newProduct = {
-       name: $('.box input [name="name"]').val(),
-       image: $('.box input [name="image"]').val(),
-       description: $('.box textarea [name="description"]').val(),
-       price: $('.box input [name="price"]').val(),
+       name: $('.box input[name="name"]').val(),
+       image: $('.box input[name="image"]').val(),
+       description: $('.box textarea[name="description"]').val(),
+       price: $('.box input[name="price"]').val()
+
 
      };
 
      products.push(newProduct);
+     tractorPage.addAllProducts(products);
 
-     tractorPage.addproduct(newProduct, products.indexOf(newProduct));
 
      $(".box input").val("");
      $(".box textarea").val("");
@@ -46,25 +47,26 @@
      var postIndex = $(this).closest("article").data("index");
 
      products.splice(postIndex, 1);
-
-     $(this).closest("article").remove();
+     tractorPage.addAllProducts(products);
    },
 
-   addProduct: function(products, index, array) {
-
-     products.idx = index;
-     var compiled = _.template(templates.products);
-
-    $("section").append(compiled(products));
-
+   compileTmpl: function (data, tmpl) {
+     var tmpl = _.template(tmpl);
+     return tmpl(data);
    },
 
    addAllProducts: function (productsData) {
-     _.each(productsData, tractorPage.addProduct)
-   }
+     var tmplStr = ""
+     var compiledTmpl = _.template(templates.products);
 
- };
+     _.each(productsData, function (item, index, arr) {
+       item.idx = index;
+       tmplStr += compiledTmpl(item);
+     });
 
+    $("section").html(tmplStr);
+  }
+};
 
  $(document).ready(function () {
    tractorPage.init();
