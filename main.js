@@ -6,27 +6,61 @@
    },
 
    initStyling: function () {
-     console.log("styling loaded correctly");
+
      tractorPage.addAllProducts(products);
    },
 
    initEvents: function () {
-     console.log("styling loaded correctly");
+
+     $(".box form").on("submit", function (event){
+       event.preventDefault();
+       tractorPage.createPost();
+     });
+
+     $("section").on("click", ".deletePost", tractorPage.deletePost);
    },
 
-   addProduct: function(product, index, array) {
-       $("section").append(
-         "<article>" +
-         "<h2>" + product.name + "</h2>" +
-         "<img src='" + product.image + "'>" +
-         "<p>" + product.description + "</p>" +
-         "<blockquote>" + product.price + "</blockquote>" +
-         "</article>"
-       );
+   createPost: function () {
+     var newProduct = {
+       name: $('.box input [name="name"]').val(),
+       image: $('.box input [name="image"]').val(),
+       description: $('.box textarea [name="description"]').val(),
+       price: $('.box input [name="price"]').val(),
+
+     };
+
+     products.push(newProduct);
+
+     tractorPage.addproduct(newProduct, products.indexOf(newProduct));
+
+     $(".box input").val("");
+     $(".box textarea").val("");
+   },
+
+   updatePost: function (){
+
+   },
+
+   deletePost: function (event) {
+
+     var postIndex = $(this).closest("article").data("index");
+
+     products.splice(postIndex, 1);
+
+     $(this).closest("article").remove();
+   },
+
+   addProduct: function(products, index, array) {
+
+     products.idx = index;
+     var compiled = _.template(templates.products);
+
+    $("section").append(compiled(products));
+
    },
 
    addAllProducts: function (productsData) {
-     productsData.forEach(tractorPage.addProduct);
+     _.each(productsData, tractorPage.addProduct)
    }
 
  };

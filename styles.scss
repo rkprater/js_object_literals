@@ -38,12 +38,16 @@ article, .box {
   padding:20px;
 }
 
-section {
-  display:inline-block;
+section, aside {
+  display: inline-block;
   vertical-align: top;
-
 }
 
 section {
-  width: 70%;
+  width: 75%;
+}
+
+aside {
+  width: 15%;
+
 }

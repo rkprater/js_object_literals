@@ -29,9 +29,12 @@ nav li:hover a {
 article, .box {
   padding: 20px; }
 
-section {
+section, aside {
   display: inline-block;
   vertical-align: top; }
 
 section {
-  width: 70%; }
+  width: 75%; }
+
+aside {
+  width: 15%; }
