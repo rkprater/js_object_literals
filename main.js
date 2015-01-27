@@ -21,7 +21,7 @@
      });
 
      $("section").on("click", ".deletePost", tractorPage.deletePost);
-     $("section").on("click", ".updatePost", tractorPage.updatePost);
+     $(".form").on("click", ".updatePost", tractorPage.updatePost);
    },
 
    createPost: function () {
