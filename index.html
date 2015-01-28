@@ -2,24 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>My Product Page</title>
   <link rel="stylesheet" href="styles.css">
   <script id="postTmpl" type="html/template">
-    <article data-index='<%= idx %>'>
-    <h3><%= title %></h3>
-    <p><%= content %></p>
-    <p>- <%= author %></p>
-    <p><button class='deletePost'>Delete</button><button class="showEditForm">Edit</button></p>
-    <img src='<%= photo %>'>
-    <div class="form">
-      <p><input type="text" class="editName" value="<%= name %>"></p>
-      <p><input type="text" class="editImage" value="<%= image %>"><  /p  >
-      <p><input type="text" class="editDescription" value="<%= description <%></%>>"><  /p>
-      <p><input type="text" class="editPrice" value="<%=   price %>"  ></p>
-      <button class="editWholePost">Edit Form</button>
-    </div>
+  <article data-index='<%= idx %>'>
+  <h3><%= name %></h3>
+  <p><%= description %></p>
+  <p>- <%= price %></p>
+  <p><button class='deletePost'>Delete</button><button class="showEditForm">Edit</button></p>
+  <img src='<%= image %>'>
+  <div class="form">
+  <p><input type="text" class="editName" value="<%= name %>"></p>
+  <p><input type="text" class="editImage" value="<%= image %>"></p>
+  <p><input type="text" class="editDescription" value="<%= description %>"></p>
+  <p><input type="text" class="editPrice" value="<%= price %>"></p>
+  <button class="editWholePost">Edit Form</button>
+  </div>
   </article>
   </script>
+</head>
 </head>
 <body>
   <header>
@@ -33,7 +34,7 @@
     </nav>
   </header>
   <section>
-
+    
   </section>
   <aside>
     <div class="box">
@@ -54,23 +55,31 @@
           <input type="text" name="price" placeholder="Price">
         </p>
         <p>
-          <button type="submit">Submit Product</button>
+          <button type="submit">Submit Post</button>
+
         </p>
 
-      </form>
-      <p><button class="updatePost">Update Post</button></p>
-    </div>
 
+      </form>
+
+    </div>
     <div class="box">
       <ul>
         <li><a href="">blog title</a></li>
       </ul>
     </div>
   </aside>
-
   <footer>
+    <nav>
+      <ul>
+        <li><a href="">nav link</a></li>
+        <li><a href="">nav link</a></li>
+        <li><a href="">nav link</a></li>
+      </ul>
+    </nav>
 
   </footer>
+
 
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
