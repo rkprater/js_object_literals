@@ -7,7 +7,6 @@
   "<p><%= description %></p>" ,
   "<blockquote><%= price %></blockquote>",
   "<p><button class='deletePost'>Delete</button></p>",
-  "<button class='updatePost'>Update</button>",
   "</article>"
 
   ].join("");

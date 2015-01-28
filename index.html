@@ -2,8 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="styles.css">
   <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <script id="postTmpl" type="html/template">
+    <article data-index='<%= idx %>'>
+    <h3><%= title %></h3>
+    <p><%= content %></p>
+    <p>- <%= author %></p>
+    <p><button class='deletePost'>Delete</button><button class="showEditForm">Edit</button></p>
+    <img src='<%= photo %>'>
+    <div class="form">
+      <p><input type="text" class="editName" value="<%= name %>"></p>
+      <p><input type="text" class="editImage" value="<%= image %>"><  /p  >
+      <p><input type="text" class="editDescription" value="<%= description <%></%>>"><  /p>
+      <p><input type="text" class="editPrice" value="<%=   price %>"  ></p>
+      <button class="editWholePost">Edit Form</button>
+    </div>
+  </article>
+  </script>
 </head>
 <body>
   <header>
@@ -17,28 +33,7 @@
     </nav>
   </header>
   <section>
-      <form class="form">
-        <h4>  <label for="name">Name or Title</label>
-          <input type="text" name="name" placeholder="Name">
-        </h4>
-        <p>
-          <label for="image">Image</label>
-          <input type="img" name="image" placeholder="Image">
-        </p>
-        <p>
-          <label for="description">Product Description</label>
-          <textarea id="description" cols="30" rows="10" name="description"></textarea>
-        </p>
-        <p>
-          <label for="price">Price</label>
-          <input type="text" name="price" placeholder="Price">
-        </p>
-        <p>
-          <button type="submit">Submit Product</button>
-        </p>
 
-      </form>
-    </div>
   </section>
   <aside>
     <div class="box">
@@ -63,7 +58,9 @@
         </p>
 
       </form>
+      <p><button class="updatePost">Update Post</button></p>
     </div>
+
     <div class="box">
       <ul>
         <li><a href="">blog title</a></li>

@@ -20,8 +20,14 @@
        tractorPage.createPost();
      });
 
-     $("section").on("click", ".deletePost", tractorPage.deletePost);
-     $(".form").on("click", ".updatePost", tractorPage.updatePost);
+     $('section').on('click', 'showEditForm', function (event) {
+       $(this).closest('article').find('.form').toggleClass('active');
+     });
+
+     $('section').on('click', '.deletePost', tractorPage.deletePost);
+
+     $('section').on('click', 'editWholePost', tractorPage.updatePost);
+
    },
 
    createPost: function () {
@@ -29,8 +35,8 @@
        name: $('.box input[name="name"]').val(),
        image: $('.box input[name="image"]').val(),
        description: $('.box textarea[name="description"]').val(),
-       price: $('.box input[name="price"]').val()
-
+       price: $('.box input[name="price"]').val(),
+       isPublished: true
 
      };
 
@@ -42,9 +48,20 @@
      $(".box textarea").val("");
    },
 
-   updatePost: function (){
-     event.preventDefault();
-     $(".form").css({"display": "block"});
+   updatePost: function () {
+
+     var thisIndex = $(this).closest('article').data('index');
+
+     var updatedPost = {
+       name: $(this).closest('article').find('input.editTitle').val(),
+       image: $(this).closest('article').find('input.editImage').val(),
+       description: $(this).closest('article').find('input.editDescription').val(),
+       price: $(this).closest('article').find('input.editPrice').val(),
+       isPublished: true
+     };
+
+     products.splice(thisIndex, 1, updatedPost);
+     tractorPage.addAllPosts(products);
    },
 
    deletePost: function (event) {
